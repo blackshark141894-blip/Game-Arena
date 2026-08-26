@@ -1,3 +1,7 @@
+/* =========================
+   SUPABASE
+========================= */
+
 const SUPABASE_URL =
     "https://utiyvbemlfukosnqrwpm.supabase.co";
 
@@ -9,14 +13,24 @@ const supabaseClient =
         SUPABASE_URL,
         SUPABASE_KEY
     );
+
+
+/* =========================
+   MAIN APP
+========================= */
+
 document.addEventListener("DOMContentLoaded", () => {
+
 
     /* =========================
        MOBILE MENU
     ========================= */
 
-    const menuBtn = document.getElementById("menuBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
+    const menuBtn =
+        document.getElementById("menuBtn");
+
+    const mobileMenu =
+        document.getElementById("mobileMenu");
 
     if (menuBtn && mobileMenu) {
 
@@ -105,7 +119,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function showToast(message) {
 
         let toast =
-            document.getElementById("gamearenaToast");
+            document.getElementById(
+                "gamearenaToast"
+            );
 
         if (!toast) {
 
@@ -135,12 +151,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }, 2200);
 
-    }    
-const loginForm =
-        document.getElementById("loginForm");
+    }
 
-    const registerForm =
-        document.getElementById("registerForm");
+
     /* =========================
        GAME CARDS
     ========================= */
@@ -185,34 +198,43 @@ const loginForm =
             return;
         }
 
-        button.addEventListener("click", event => {
+        button.addEventListener(
+            "click",
+            event => {
 
-            event.preventDefault();
+                event.preventDefault();
 
-            const pointsElement =
-                card.querySelector("strong");
+                const pointsElement =
+                    card.querySelector("strong");
 
-            const points =
-                pointsElement
-                    ? pointsElement.textContent.trim()
-                    : "";
+                const points =
+                    pointsElement
+                        ? pointsElement
+                            .textContent
+                            .trim()
+                        : "";
 
-            const tierElement =
-                card.querySelector(":scope > span");
+                const tierElement =
+                    card.querySelector(
+                        ":scope > span"
+                    );
 
-            const tier =
-                tierElement
-                    ? tierElement.textContent.trim()
-                    : "Tournament";
+                const tier =
+                    tierElement
+                        ? tierElement
+                            .textContent
+                            .trim()
+                        : "Tournament";
 
-            showToast(
-                tier +
-                " — " +
-                points +
-                " Points"
-            );
+                showToast(
+                    tier +
+                    " — " +
+                    points +
+                    " Points"
+                );
 
-        });
+            }
+        );
 
     });
 
@@ -226,13 +248,16 @@ const loginForm =
 
     if (heroCard) {
 
-        heroCard.addEventListener("click", () => {
+        heroCard.addEventListener(
+            "click",
+            () => {
 
-            showToast(
-                "Live match selected"
-            );
+                showToast(
+                    "Live match selected"
+                );
 
-        });
+            }
+        );
 
     }
 
@@ -249,113 +274,325 @@ const loginForm =
                 new Date().getFullYear();
 
         });
-            /* =========================
+
+
+    /* =========================
+       FORM ELEMENTS
+    ========================= */
+
+    const loginForm =
+        document.getElementById("loginForm");
+
+    const registerForm =
+        document.getElementById("registerForm");
+
+
+    /* =========================
        LOGIN
     ========================= */
 
     if (loginForm) {
 
-        loginForm.addEventListener("submit", async event => {
+        loginForm.addEventListener(
+            "submit",
+            async event => {
 
-            event.preventDefault();
+                event.preventDefault();
 
-            const email =
-                document
-                    .getElementById("loginEmail")
-                    .value
-                    .trim();
+                const email =
+                    document
+                        .getElementById(
+                            "loginEmail"
+                        )
+                        .value
+                        .trim();
 
-            const password =
-                document
-                    .getElementById("loginPassword")
-                    .value;
+                const password =
+                    document
+                        .getElementById(
+                            "loginPassword"
+                        )
+                        .value;
 
-            if (!email || !password) {
-                showToast("Enter email and password");
-                return;
+                if (!email || !password) {
+
+                    showToast(
+                        "Enter email and password"
+                    );
+
+                    return;
+                }
+
+                const { error } =
+                    await supabaseClient
+                        .auth
+                        .signInWithPassword({
+                            email: email,
+                            password: password
+                        });
+
+                if (error) {
+
+                    showToast(
+                        error.message
+                    );
+
+                    return;
+                }
+
+                showToast(
+                    "Login successful"
+                );
+
             }
-
-            const { error } =
-                await supabaseClient.auth.signInWithPassword({
-                    email: email,
-                    password: password
-                });
-
-            if (error) {
-                showToast(error.message);
-                return;
-            }
-
-            showToast("Login successful");
-
-        });
+        );
 
     }
 
 
     /* =========================
-   REGISTER
-========================= */
+       REGISTER
+    ========================= */
 
-if (registerForm) {
+    if (registerForm) {
 
-    registerForm.addEventListener("submit", async event => {
+        registerForm.addEventListener(
+            "submit",
+            async event => {
 
-        event.preventDefault();
+                event.preventDefault();
 
-        const username =
-            document
-                .getElementById("registerUsername")
-                .value
-                .trim();
+                const username =
+                    document
+                        .getElementById(
+                            "registerUsername"
+                        )
+                        .value
+                        .trim();
 
-        const email =
-            document
-                .getElementById("registerEmail")
-                .value
-                .trim();
+                const email =
+                    document
+                        .getElementById(
+                            "registerEmail"
+                        )
+                        .value
+                        .trim();
 
-        const password =
-            document
-                .getElementById("registerPassword")
-                .value;
+                const password =
+                    document
+                        .getElementById(
+                            "registerPassword"
+                        )
+                        .value;
 
-        if (!username || !email || !password) {
-            showToast("Complete all fields");
-            return;
-        }
+                if (
+                    !username ||
+                    !email ||
+                    !password
+                ) {
 
-        const { data, error } =
-    await supabaseClient.auth.signUp({
-        email: email,
-        password: password,
-        options: {
-            data: {
-                username: username
+                    showToast(
+                        "Complete all fields"
+                    );
+
+                    return;
+                }
+
+
+                const { data, error } =
+                    await supabaseClient
+                        .auth
+                        .signUp({
+
+                            email: email,
+
+                            password: password,
+
+                            options: {
+                                data: {
+                                    username:
+                                        username
+                                }
+                            }
+
+                        });
+
+
+                if (error) {
+
+                    showToast(
+                        error.message
+                    );
+
+                    return;
+                }
+
+
+                if (!data.user) {
+
+                    showToast(
+                        "Account could not be created"
+                    );
+
+                    return;
+                }
+
+
+                if (
+                    data.user.identities &&
+                    data.user.identities.length === 0
+                ) {
+
+                    showToast(
+                        "An account with this email already exists"
+                    );
+
+                    return;
+                }
+
+
+                showToast(
+                    "Account created successfully"
+                );
+
             }
-        }
-    });
-
-if (error) {
-    showToast(error.message);
-    return;
-}
-
-if (!data.user) {
-    showToast("Account could not be created");
-    return;
-}
-
-if (data.user.identities && data.user.identities.length === 0) {
-    showToast("An account with this email already exists");
-    return;
-}
-
-showToast("Account created successfully");
-
-        });
+        );
 
     }
+
+
+    /* =========================
+       FORGOT PASSWORD
+    ========================= */
+
+    const forgotPasswordForm =
+        document.getElementById(
+            "forgotPasswordForm"
+        );
+
+    if (forgotPasswordForm) {
+
+        forgotPasswordForm.addEventListener(
+            "submit",
+            async event => {
+
+                event.preventDefault();
+
+                const email =
+                    document
+                        .getElementById(
+                            "forgotEmail"
+                        )
+                        .value
+                        .trim();
+
+                if (!email) {
+
+                    showToast(
+                        "Enter your email"
+                    );
+
+                    return;
+                }
+
+
+                const { error } =
+                    await supabaseClient
+                        .auth
+                        .resetPasswordForEmail(
+                            email,
+                            {
+                                redirectTo:
+                                    window.location.origin +
+                                    window.location.pathname +
+                                    "#reset-password"
+                            }
+                        );
+
+
+                if (error) {
+
+                    showToast(
+                        error.message
+                    );
+
+                    return;
+                }
+
+
+                showToast(
+                    "Password reset link sent to your email"
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =========================
+       LOGOUT
+    ========================= */
+
+    const logoutButton =
+        document.getElementById(
+            "logoutButton"
+        );
+
+    if (logoutButton) {
+
+        logoutButton.addEventListener(
+            "click",
+            async () => {
+
+                const { error } =
+                    await supabaseClient
+                        .auth
+                        .signOut();
+
+                if (error) {
+
+                    showToast(
+                        error.message
+                    );
+
+                    return;
+                }
+
+                showToast(
+                    "Logged out successfully"
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =========================
+       SESSION CHECK
+    ========================= */
+
+    supabaseClient.auth
+        .getSession()
+        .then(({ data }) => {
+
+            if (data.session) {
+
+                console.log(
+                    "🎮 User is logged in:",
+                    data.session.user.email
+                );
+
+            } else {
+
+                console.log(
+                    "🎮 No user logged in."
+                );
+
+            }
+
+        });
 
 
     /* =========================
