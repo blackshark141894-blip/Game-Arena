@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ===============================
+    /* =========================
        MOBILE MENU
-    =============================== */
+    ========================= */
 
     const menuBtn = document.getElementById("menuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const opened =
                 mobileMenu.classList.contains("active");
 
-            menuBtn.textContent = opened ? "✕" : "☰";
+            menuBtn.textContent =
+                opened ? "✕" : "☰";
 
             menuBtn.setAttribute(
                 "aria-label",
@@ -27,164 +28,73 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
 
-        mobileMenu.querySelectorAll("a").forEach(link => {
 
-            link.addEventListener("click", () => {
+        mobileMenu
+            .querySelectorAll("a")
+            .forEach(link => {
 
-                mobileMenu.classList.remove("active");
+                link.addEventListener("click", () => {
 
-                menuBtn.textContent = "☰";
+                    mobileMenu.classList.remove("active");
 
-                menuBtn.setAttribute(
-                    "aria-label",
-                    "Open navigation"
-                );
+                    menuBtn.textContent = "☰";
+
+                    menuBtn.setAttribute(
+                        "aria-label",
+                        "Open navigation"
+                    );
+
+                });
 
             });
 
-        });
     }
 
 
-    /* ===============================
+    /* =========================
        SMOOTH SCROLL
-    =============================== */
+    ========================= */
 
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
+    document
+        .querySelectorAll('a[href^="#"]')
+        .forEach(link => {
 
-        link.addEventListener("click", event => {
+            link.addEventListener("click", event => {
 
-            const targetId =
-                link.getAttribute("href");
+                const targetId =
+                    link.getAttribute("href");
 
-            if (!targetId || targetId === "#") {
-                return;
-            }
+                if (!targetId || targetId === "#") {
+                    return;
+                }
 
-            const target =
-                document.querySelector(targetId);
+                const target =
+                    document.querySelector(targetId);
 
-            if (!target) {
-                return;
-            }
+                if (!target) {
+                    return;
+                }
 
-            event.preventDefault();
+                event.preventDefault();
 
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
             });
 
         });
 
-    });
 
-
-    /* ===============================
-       GAME CARDS
-    =============================== */
-
-    const gameCards =
-        document.querySelectorAll(".game-card");
-
-    gameCards.forEach(card => {
-
-        card.addEventListener("click", () => {
-
-            const gameName =
-                card.querySelector("h3");
-
-            if (!gameName) {
-                return;
-            }
-
-            const name =
-                gameName.textContent.trim();
-
-            showToast(
-                `${name} selected`
-            );
-
-        });
-
-    });
-
-
-    /* ===============================
-       TOURNAMENT TIERS
-    =============================== */
-
-    const tierCards =
-        document.querySelectorAll(".tier-card");
-
-    tierCards.forEach(card => {
-
-        const button =
-            card.querySelector("button");
-
-        if (!button) {
-            return;
-        }
-
-        button.addEventListener("click", event => {
-
-            event.preventDefault();
-
-            const tier =
-                card.querySelector(":scope > span");
-
-            const points =
-                card.querySelector("strong");
-
-            const tierName =
-                tier
-                    ? tier.textContent.trim()
-                    : "Tournament";
-
-            const pointValue =
-                points
-                    ? points.textContent.trim()
-                    : "";
-
-            showToast(
-                `${tierName} — ${pointValue} Points`
-            );
-
-        });
-
-    });
-
-
-    /* ===============================
-       LIVE MATCH CARD
-    =============================== */
-
-    const heroCard =
-        document.querySelector(".hero-card");
-
-    if (heroCard) {
-
-        heroCard.addEventListener("click", () => {
-
-            showToast(
-                "Live match selected"
-            );
-
-        });
-
-    }
-
-
-    /* ===============================
-       TOAST
-    =============================== */
+    /* =========================
+       TOAST SYSTEM
+    ========================= */
 
     function showToast(message) {
 
         let toast =
-            document.getElementById(
-                "gamearenaToast"
-            );
+            document.getElementById("gamearenaToast");
 
         if (!toast) {
 
@@ -215,12 +125,105 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 2200);
 
     }
+    /* =========================
+       GAME CARDS
+    ========================= */
+
+    const gameCards =
+        document.querySelectorAll(".game-card");
+
+    gameCards.forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            const gameName =
+                card.querySelector("h3");
+
+            if (!gameName) {
+                return;
+            }
+
+            showToast(
+                gameName.textContent.trim() +
+                " selected"
+            );
+
+        });
+
+    });
 
 
-    /* ===============================
+    /* =========================
+       TOURNAMENT TIERS
+    ========================= */
+
+    const tierCards =
+        document.querySelectorAll(".tier-card");
+
+    tierCards.forEach(card => {
+
+        const button =
+            card.querySelector("button");
+
+        if (!button) {
+            return;
+        }
+
+        button.addEventListener("click", event => {
+
+            event.preventDefault();
+
+            const pointsElement =
+                card.querySelector("strong");
+
+            const points =
+                pointsElement
+                    ? pointsElement.textContent.trim()
+                    : "";
+
+            const tierElement =
+                card.querySelector(":scope > span");
+
+            const tier =
+                tierElement
+                    ? tierElement.textContent.trim()
+                    : "Tournament";
+
+            showToast(
+                tier +
+                " — " +
+                points +
+                " Points"
+            );
+
+        });
+
+    });
+
+
+    /* =========================
+       HERO MATCH
+    ========================= */
+
+    const heroCard =
+        document.querySelector(".hero-card");
+
+    if (heroCard) {
+
+        heroCard.addEventListener("click", () => {
+
+            showToast(
+                "Live match selected"
+            );
+
+        });
+
+    }
+
+
+    /* =========================
        FOOTER YEAR
-       Works if data-year exists
-    =============================== */
+    ========================= */
 
     document
         .querySelectorAll("[data-year]")
@@ -230,11 +233,93 @@ document.addEventListener("DOMContentLoaded", () => {
                 new Date().getFullYear();
 
         });
+    /* =========================
+       LOGIN
+    ========================= */
+
+    const loginForm =
+        document.getElementById("loginForm");
+
+    if (loginForm) {
+
+        loginForm.addEventListener(
+            "submit",
+            event => {
+
+                event.preventDefault();
+
+                const username =
+                    document
+                        .getElementById("loginEmail")
+                        .value
+                        .trim();
+
+                if (!username) {
+                    showToast(
+                        "Enter your username"
+                    );
+                    return;
+                }
+
+                showToast(
+                    "Login request received"
+                );
+
+            }
+        );
+
+    }
 
 
-    /* ===============================
+    /* =========================
+       REGISTER
+    ========================= */
+
+    const registerForm =
+        document.getElementById("registerForm");
+
+    if (registerForm) {
+
+        registerForm.addEventListener(
+            "submit",
+            event => {
+
+                event.preventDefault();
+
+                const username =
+                    document
+                        .getElementById("registerUsername")
+                        .value
+                        .trim();
+
+                const email =
+                    document
+                        .getElementById("registerEmail")
+                        .value
+                        .trim();
+
+                if (!username || !email) {
+
+                    showToast(
+                        "Complete all fields"
+                    );
+
+                    return;
+                }
+
+                showToast(
+                    "Account request received"
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =========================
        STATUS
-    =============================== */
+    ========================= */
 
     console.log(
         "🎮 GameArena JS loaded successfully."
