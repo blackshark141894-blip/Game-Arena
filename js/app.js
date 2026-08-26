@@ -325,35 +325,45 @@ if (registerForm) {
             return;
         }
 
-        const { error } =
-            await supabaseClient.auth.signUp({
-                email: email,
-                password: password,
-                options: {
-                    data: {
-                        username: username
-                    }
-                }
-            });
-
-        if (error) {
-            showToast(error.message);
-            return;
+        const { data, error } =
+    await supabaseClient.auth.signUp({
+        email: email,
+        password: password,
+        options: {
+            data: {
+                username: username
+            }
         }
-
-        showToast("Account created successfully");
-
     });
 
+if (error) {
+    showToast(error.message);
+    return;
 }
 
+if (!data.user) {
+    showToast("Account could not be created");
+    return;
+}
 
-/* =========================
-   STATUS
-========================= */
+if (data.user.identities && data.user.identities.length === 0) {
+    showToast("An account with this email already exists");
+    return;
+}
 
-console.log(
-    "🎮 GameArena JS loaded successfully."
-);
+showToast("Account created successfully");
+
+        });
+
+    }
+
+
+    /* =========================
+       STATUS
+    ========================= */
+
+    console.log(
+        "🎮 GameArena JS loaded successfully."
+    );
 
 });
