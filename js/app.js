@@ -294,78 +294,66 @@ const loginForm =
 
 
     /* =========================
-       REGISTER
-    ========================= */
+   REGISTER
+========================= */
 
-    if (registerForm) {
+if (registerForm) {
 
-        registerForm.addEventListener("submit", async event => {
+    registerForm.addEventListener("submit", async event => {
 
-            event.preventDefault();
+        event.preventDefault();
 
-            const username =
-                document
-                    .getElementById("registerUsername")
-                    .value
-                    .trim();
+        const username =
+            document
+                .getElementById("registerUsername")
+                .value
+                .trim();
 
-            const email =
-                document
-                    .getElementById("registerEmail")
-                    .value
-                    .trim();
+        const email =
+            document
+                .getElementById("registerEmail")
+                .value
+                .trim();
 
-            const password =
-                document
-                    .getElementById("registerPassword")
-                    .value;
+        const password =
+            document
+                .getElementById("registerPassword")
+                .value;
 
-            if (!username || !email || !password) {
-                showToast("Complete all fields");
-                return;
-            }
+        if (!username || !email || !password) {
+            showToast("Complete all fields");
+            return;
+        }
 
-            const { data, error } =
-                await supabaseClient.auth.signUp({
-                    email: email,
-                    password: password
-                });
-
-            if (error) {
-                showToast(error.message);
-                return;
-            }
-
-            if (data.user) {
-
-                const { error: profileError } =
-                    await supabaseClient
-                        .from("players")
-                        .insert({
-                            id: data.user.id,
-                            username: username
-                        });
-
-                if (profileError) {
-                    showToast(profileError.message);
-                    return;
+        const { error } =
+            await supabaseClient.auth.signUp({
+                email: email,
+                password: password,
+                options: {
+                    data: {
+                        username: username
+                    }
                 }
+            });
 
-            }
+        if (error) {
+            showToast(error.message);
+            return;
+        }
 
-            showToast("Account created successfully");
+        showToast("Account created successfully");
 
-        });
+    });
 
-    }
+}
 
 
-    /* =========================
-       STATUS
-    ========================= */
+/* =========================
+   STATUS
+========================= */
 
-    console.log(
-        "🎮 GameArena JS loaded successfully."
-    );
+console.log(
+    "🎮 GameArena JS loaded successfully."
+);
 
 });
