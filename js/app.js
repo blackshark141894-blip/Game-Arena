@@ -238,7 +238,7 @@ const loginForm =
                 new Date().getFullYear();
 
         });
-        /* =========================
+            /* =========================
        LOGIN
     ========================= */
 
@@ -249,10 +249,15 @@ const loginForm =
             event.preventDefault();
 
             const email =
-                document.getElementById("loginEmail").value.trim();
+                document
+                    .getElementById("loginEmail")
+                    .value
+                    .trim();
 
             const password =
-                document.getElementById("loginPassword").value;
+                document
+                    .getElementById("loginPassword")
+                    .value;
 
             if (!email || !password) {
                 showToast("Enter email and password");
@@ -353,4 +358,3 @@ const loginForm =
     );
 
 });
-    
