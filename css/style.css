@@ -15,52 +15,7 @@
     --accent-light: #c084fc;
     --border: rgba(255,255,255,0.08);
 }
-/* ===============================
-   TOAST NOTIFICATION
-=============================== */
 
-.gamearena-toast {
-    position: fixed;
-
-    left: 50%;
-    bottom: 28px;
-
-    transform: translate(-50%, 20px);
-
-    padding: 13px 20px;
-
-    border: 1px solid rgba(192,132,252,0.25);
-    border-radius: 10px;
-
-    background: rgba(17,17,25,0.95);
-
-    color: #ffffff;
-
-    font-size: 12px;
-    font-weight: 800;
-
-    box-shadow:
-        0 15px 40px rgba(0,0,0,0.45);
-
-    backdrop-filter: blur(15px);
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
-
-    z-index: 9999;
-}
-
-.gamearena-toast.show {
-    opacity: 1;
-
-    transform:
-        translate(-50%, 0);
-}
 html {
     scroll-behavior: smooth;
 }
@@ -1274,4 +1229,50 @@ button {
         gap: 25px;
     }
 
+}
+/* ===============================
+   TOAST NOTIFICATION
+=============================== */
+
+.gamearena-toast {
+    position: fixed;
+
+    left: 50%;
+    bottom: 28px;
+
+    transform: translate(-50%, 20px);
+
+    padding: 13px 20px;
+
+    border: 1px solid rgba(192,132,252,0.25);
+    border-radius: 10px;
+
+    background: rgba(17,17,25,0.95);
+
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.45);
+
+    backdrop-filter: blur(15px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+
+    z-index: 9999;
+}
+
+.gamearena-toast.show {
+    opacity: 1;
+
+    transform:
+        translate(-50%, 0);
 }
