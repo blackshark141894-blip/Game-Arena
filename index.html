@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>GameArena — Gaming Tournaments</title>
+    <title>GameArena | Premium Gaming Tournaments</title>
 
     <meta
         name="description"
-        content="Premium gaming tournament platform."
+        content="GameArena — compete in premium gaming tournaments and climb the leaderboard."
     >
 
     <link rel="stylesheet" href="css/style.css">
@@ -24,46 +24,88 @@
 
             <a href="index.html" class="logo">
                 <span class="logo-mark">G</span>
-                <span>GAME<span>ARENA</span></span>
+
+                <span class="logo-text">
+                    GAME<span>ARENA</span>
+                </span>
             </a>
 
+
             <nav class="desktop-nav">
+
                 <a href="#games">Games</a>
-                <a href="#tournaments">Tournaments</a>
-                <a href="#leaderboard">Leaderboard</a>
+
+                <a href="#tournaments">
+                    Tournaments
+                </a>
+
+                <a href="#leaderboard">
+                    Leaderboard
+                </a>
+
             </nav>
 
+
             <div class="nav-actions">
-                <a href="pages/login.html" class="login-btn">
+
+                <a
+                    href="pages/login.html"
+                    class="login-btn"
+                >
                     Login
                 </a>
 
-                <a href="pages/register.html" class="register-btn">
+                <a
+                    href="pages/register.html"
+                    class="register-btn"
+                >
                     Register
                 </a>
+
             </div>
+
 
             <button
                 class="menu-btn"
                 id="menuBtn"
-                aria-label="Open menu"
+                aria-label="Open navigation"
             >
                 ☰
             </button>
 
         </div>
 
-        <!-- Mobile Menu -->
 
-        <div class="mobile-menu" id="mobileMenu">
+        <!-- Mobile navigation -->
 
-            <a href="#games">Games</a>
-            <a href="#tournaments">Tournaments</a>
-            <a href="#leaderboard">Leaderboard</a>
+        <div
+            class="mobile-menu"
+            id="mobileMenu"
+        >
+
+            <a href="#games">
+                Games
+            </a>
+
+            <a href="#tournaments">
+                Tournaments
+            </a>
+
+            <a href="#leaderboard">
+                Leaderboard
+            </a>
+
 
             <div class="mobile-actions">
-                <a href="pages/login.html">Login</a>
-                <a href="pages/register.html">Register</a>
+
+                <a href="pages/login.html">
+                    Login
+                </a>
+
+                <a href="pages/register.html">
+                    Register
+                </a>
+
             </div>
 
         </div>
@@ -71,50 +113,131 @@
     </header>
 
 
-    <!-- ================= HERO ================= -->
+
+    <!-- ================= MAIN ================= -->
 
     <main>
 
+
+        <!-- ================= HERO ================= -->
+
         <section class="hero">
 
-            <div class="hero-bg"></div>
+            <div class="hero-grid"></div>
+
+            <div class="hero-glow glow-one"></div>
+
+            <div class="hero-glow glow-two"></div>
+
 
             <div class="container hero-content">
 
-                <div class="hero-text">
 
-                    <div class="status-badge">
-                        <span></span>
-                        TOURNAMENTS ARE LIVE
-                    </div>
+                <div class="hero-badge">
 
-                    <h1>
-                        PLAY.
-                        <span>COMPETE.</span>
-                        DOMINATE.
-                    </h1>
+                    <span class="live-dot"></span>
 
-                    <p>
-                        Enter the arena, challenge other players,
-                        and climb the leaderboard.
-                    </p>
+                    LIVE TOURNAMENTS
 
-                    <div class="hero-buttons">
+                    <span class="badge-arrow">
+                        →
+                    </span>
 
-                        <a
-                            href="#tournaments"
-                            class="primary-btn"
-                        >
+                </div>
+
+
+                <h1 class="hero-title">
+
+                    ENTER THE
+
+                    <span>
+                        ARENA.
+                    </span>
+
+                    <small>
+                        PROVE YOUR SKILL.
+                    </small>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Compete against players,
+                    conquer tournaments,
+                    earn points and climb
+                    the GameArena leaderboard.
+
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a
+                        href="#tournaments"
+                        class="primary-btn"
+                    >
+
+                        <span>
                             Join Tournament
-                            <span>→</span>
-                        </a>
+                        </span>
 
-                        <a
-                            href="#games"
-                            class="secondary-btn"
-                        >
-                            Explore Games
-                        </a>
+                        <b>
+                            →
+                        </b>
+
+                    </a>
+
+
+                    <a
+                        href="#games"
+                        class="secondary-btn"
+                    >
+
+                        Explore Games
+
+                    </a>
+
+                </div>
+
+
+                <div class="hero-mini-stats">
+
+                    <div>
+
+                        <strong>
+                            07
+                        </strong>
+
+                        <span>
+                            GAMES
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            05
+                        </strong>
+
+                        <span>
+                            TIERS
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            24/7
+                        </strong>
+
+                        <span>
+                            BATTLES
+                        </span>
 
                     </div>
 
@@ -122,187 +245,325 @@
 
             </div>
 
-        </section>
 
+            <!-- Decorative arena card -->
 
-        <!-- ================= STATS ================= -->
+            <div class="hero-card">
 
-        <section class="stats">
+                <div class="hero-card-top">
 
-            <div class="container stats-grid">
+                    <span>
+                        CURRENT MATCH
+                    </span>
 
-                <div class="stat-card">
-                    <strong>07</strong>
-                    <span>Games</span>
+                    <i>
+                        LIVE
+                    </i>
+
                 </div>
 
-                <div class="stat-card">
-                    <strong>05</strong>
-                    <span>Tournament Tiers</span>
+
+                <div class="versus">
+
+                    <div class="player-preview">
+
+                        <div class="avatar">
+                            SK
+                        </div>
+
+                        <strong>
+                            ShadowKing
+                        </strong>
+
+                        <small>
+                            1,280 PTS
+                        </small>
+
+                    </div>
+
+
+                    <div class="vs">
+
+                        <span>
+                            VS
+                        </span>
+
+                    </div>
+
+
+                    <div class="player-preview">
+
+                        <div class="avatar">
+                            NW
+                        </div>
+
+                        <strong>
+                            NightWolf
+                        </strong>
+
+                        <small>
+                            1,140 PTS
+                        </small>
+
+                    </div>
+
                 </div>
 
-                <div class="stat-card">
-                    <strong>24/7</strong>
-                    <span>Competition</span>
-                </div>
 
-                <div class="stat-card">
-                    <strong>∞</strong>
-                    <span>Challenges</span>
+                <div class="match-footer">
+
+                    <span>
+                        ⚡ Championship Match
+                    </span>
+
+                    <span>
+                        LIVE
+                    </span>
+
                 </div>
 
             </div>
 
         </section>
+
 
 
         <!-- ================= GAMES ================= -->
 
         <section
-            class="section"
+            class="section games-section"
             id="games"
         >
 
             <div class="container">
 
+
                 <div class="section-heading">
 
                     <div>
+
                         <span class="section-label">
                             CHOOSE YOUR BATTLE
                         </span>
 
                         <h2>
-                            Featured <span>Games</span>
+                            Featured
+                            <span>Games</span>
                         </h2>
+
                     </div>
 
-                    <a href="pages/games.html" class="view-all">
+
+                    <a
+                        href="pages/games.html"
+                        class="view-all"
+                    >
                         View All →
                     </a>
 
                 </div>
 
 
+
                 <div class="games-grid">
 
+
                     <article class="game-card">
-                        <div class="game-icon chess">
+
+                        <div class="game-number">
+                            01
+                        </div>
+
+                        <div class="game-icon">
                             ♟
                         </div>
 
-                        <h3>Chess.com</h3>
+                        <h3>
+                            Chess.com
+                        </h3>
 
                         <p>
                             Strategy & Skill
                         </p>
 
                         <span class="game-status">
-                            Tournaments Available
+                            ● AVAILABLE
                         </span>
+
                     </article>
 
 
+
                     <article class="game-card">
-                        <div class="game-icon ludo">
+
+                        <div class="game-number">
+                            02
+                        </div>
+
+                        <div class="game-icon">
                             🎲
                         </div>
 
-                        <h3>Ludo King</h3>
+                        <h3>
+                            Ludo King
+                        </h3>
 
                         <p>
                             Classic Battle
                         </p>
 
                         <span class="game-status">
-                            Tournaments Available
+                            ● AVAILABLE
                         </span>
+
                     </article>
 
 
+
                     <article class="game-card">
-                        <div class="game-icon uno">
+
+                        <div class="game-number">
+                            03
+                        </div>
+
+                        <div class="game-icon">
                             🃏
                         </div>
 
-                        <h3>UNO</h3>
+                        <h3>
+                            UNO
+                        </h3>
 
                         <p>
                             Card Battle
                         </p>
 
                         <span class="game-status">
-                            Tournaments Available
+                            ● AVAILABLE
                         </span>
+
                     </article>
 
 
+
                     <article class="game-card">
-                        <div class="game-icon carrom">
+
+                        <div class="game-number">
+                            04
+                        </div>
+
+                        <div class="game-icon">
                             🎱
                         </div>
 
-                        <h3>Carrom Pool</h3>
+                        <h3>
+                            Carrom Pool
+                        </h3>
 
                         <p>
                             Precision Battle
                         </p>
 
                         <span class="game-status">
-                            Tournaments Available
+                            ● AVAILABLE
                         </span>
+
                     </article>
 
 
+
                     <article class="game-card">
-                        <div class="game-icon freefire">
+
+                        <div class="game-number">
+                            05
+                        </div>
+
+                        <div class="game-icon">
                             🔥
                         </div>
 
-                        <h3>Free Fire</h3>
+                        <h3>
+                            Free Fire
+                        </h3>
 
                         <p>
                             Battle Royale
                         </p>
 
                         <span class="game-status">
-                            Tournaments Available
+                            ● AVAILABLE
                         </span>
+
                     </article>
 
 
+
                     <article class="game-card">
-                        <div class="game-icon shadow">
+
+                        <div class="game-number">
+                            06
+                        </div>
+
+                        <div class="game-icon">
                             ⚔
                         </div>
 
-                        <h3>Shadow Fight 4</h3>
+                        <h3>
+                            Shadow Fight 4
+                        </h3>
 
                         <p>
                             Fighting Arena
                         </p>
 
                         <span class="game-status">
-                            Tournaments Available
+                            ● AVAILABLE
                         </span>
+
                     </article>
 
 
+
                     <article class="game-card">
-                        <div class="game-icon clash">
+
+                        <div class="game-number">
+                            07
+                        </div>
+
+                        <div class="game-icon">
                             👑
                         </div>
 
-                        <h3>Clash Royale</h3>
+                        <h3>
+                            Clash Royale
+                        </h3>
 
                         <p>
                             Strategy Battle
                         </p>
 
                         <span class="game-status">
-                            Tournaments Available
+                            ● AVAILABLE
                         </span>
+
                     </article>
+
+
+                    <div class="game-card-more">
+
+                        <span>
+                            MORE
+                        </span>
+
+                        <strong>
+                            COMING
+                        </strong>
+
+                        <small>
+                            SOON
+                        </small>
+
+                    </div>
 
                 </div>
 
@@ -311,14 +572,16 @@
         </section>
 
 
+
         <!-- ================= TOURNAMENTS ================= -->
 
         <section
-            class="section tournaments-section"
+            class="section tournament-section"
             id="tournaments"
         >
 
             <div class="container">
+
 
                 <div class="section-heading">
 
@@ -329,7 +592,8 @@
                         </span>
 
                         <h2>
-                            Tournament <span>Tiers</span>
+                            Tournament
+                            <span>Tiers</span>
                         </h2>
 
                     </div>
@@ -339,50 +603,125 @@
 
                 <div class="tier-grid">
 
-                    <div class="tier-card">
-                        <span>STARTER</span>
-                        <strong>10</strong>
-                        <small>POINTS</small>
-                        <button>View Tournament</button>
-                    </div>
+
+                    <article class="tier-card">
+
+                        <span>
+                            STARTER
+                        </span>
+
+                        <strong>
+                            10
+                        </strong>
+
+                        <small>
+                            POINTS
+                        </small>
+
+                        <button>
+                            Explore
+                        </button>
+
+                    </article>
 
 
-                    <div class="tier-card">
-                        <span>RISING</span>
-                        <strong>30</strong>
-                        <small>POINTS</small>
-                        <button>View Tournament</button>
-                    </div>
+
+                    <article class="tier-card">
+
+                        <span>
+                            RISING
+                        </span>
+
+                        <strong>
+                            30
+                        </strong>
+
+                        <small>
+                            POINTS
+                        </small>
+
+                        <button>
+                            Explore
+                        </button>
+
+                    </article>
 
 
-                    <div class="tier-card">
-                        <span>PRO</span>
-                        <strong>50</strong>
-                        <small>POINTS</small>
-                        <button>View Tournament</button>
-                    </div>
+
+                    <article class="tier-card">
+
+                        <span>
+                            PRO
+                        </span>
+
+                        <strong>
+                            50
+                        </strong>
+
+                        <small>
+                            POINTS
+                        </small>
+
+                        <button>
+                            Explore
+                        </button>
+
+                    </article>
 
 
-                    <div class="tier-card">
-                        <span>ELITE</span>
-                        <strong>80</strong>
-                        <small>POINTS</small>
-                        <button>View Tournament</button>
-                    </div>
+
+                    <article class="tier-card">
+
+                        <span>
+                            ELITE
+                        </span>
+
+                        <strong>
+                            80
+                        </strong>
+
+                        <small>
+                            POINTS
+                        </small>
+
+                        <button>
+                            Explore
+                        </button>
+
+                    </article>
 
 
-                    <div class="tier-card featured-tier">
-                        <span>CHAMPION</span>
-                        <strong>100</strong>
-                        <small>POINTS</small>
-                        <button>View Tournament</button>
-                    </div>
+
+                    <article class="tier-card champion-tier">
+
+                        <div class="popular">
+                            POPULAR
+                        </div>
+
+                        <span>
+                            CHAMPION
+                        </span>
+
+                        <strong>
+                            100
+                        </strong>
+
+                        <small>
+                            POINTS
+                        </small>
+
+                        <button>
+                            Explore
+                        </button>
+
+                    </article>
 
                 </div>
 
             </div>
 
         </section>
+
 
 
         <!-- ================= HOW IT WORKS ================= -->
@@ -391,6 +730,7 @@
 
             <div class="container">
 
+
                 <div class="section-heading center">
 
                     <span class="section-label">
@@ -398,7 +738,8 @@
                     </span>
 
                     <h2>
-                        How It <span>Works</span>
+                        How It
+                        <span>Works</span>
                     </h2>
 
                 </div>
@@ -406,43 +747,104 @@
 
                 <div class="steps">
 
-                    <div class="step">
-                        <b>01</b>
-                        <h3>Create Account</h3>
-                        <p>
-                            Register your gaming profile.
-                        </p>
-                    </div>
 
-                    <div class="step">
-                        <b>02</b>
-                        <h3>Join Tournament</h3>
-                        <p>
-                            Choose your game and tier.
-                        </p>
-                    </div>
+                    <article class="step">
 
-                    <div class="step">
-                        <b>03</b>
-                        <h3>Play Match</h3>
-                        <p>
-                            Receive your match information.
-                        </p>
-                    </div>
+                        <span>
+                            01
+                        </span>
 
-                    <div class="step">
-                        <b>04</b>
-                        <h3>Get Result</h3>
+                        <div class="step-icon">
+                            👤
+                        </div>
+
+                        <h3>
+                            Create Account
+                        </h3>
+
                         <p>
-                            Results and virtual points are updated.
+                            Build your player
+                            profile and add your
+                            game information.
                         </p>
-                    </div>
+
+                    </article>
+
+
+
+                    <article class="step">
+
+                        <span>
+                            02
+                        </span>
+
+                        <div class="step-icon">
+                            🏆
+                        </div>
+
+                        <h3>
+                            Join Tournament
+                        </h3>
+
+                        <p>
+                            Choose a game and
+                            tournament tier.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="step">
+
+                        <span>
+                            03
+                        </span>
+
+                        <div class="step-icon">
+                            🎮
+                        </div>
+
+                        <h3>
+                            Play Match
+                        </h3>
+
+                        <p>
+                            Receive your match
+                            information and play.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="step">
+
+                        <span>
+                            04
+                        </span>
+
+                        <div class="step-icon">
+                            📊
+                        </div>
+
+                        <h3>
+                            Get Result
+                        </h3>
+
+                        <p>
+                            Results are verified
+                            and points updated.
+                        </p>
+
+                    </article>
 
                 </div>
 
             </div>
 
         </section>
+
 
 
         <!-- ================= LEADERBOARD ================= -->
@@ -453,6 +855,7 @@
         >
 
             <div class="container">
+
 
                 <div class="section-heading">
 
@@ -468,6 +871,7 @@
 
                     </div>
 
+
                     <a
                         href="pages/leaderboard.html"
                         class="view-all"
@@ -478,91 +882,47 @@
                 </div>
 
 
+
                 <div class="leaderboard">
 
+
                     <div class="leader-row header-row">
-                        <span>Rank</span>
-                        <span>Player</span>
-                        <span>Wins</span>
-                        <span>Points</span>
+
+                        <span>
+                            RANK
+                        </span>
+
+                        <span>
+                            PLAYER
+                        </span>
+
+                        <span>
+                            WINS
+                        </span>
+
+                        <span>
+                            POINTS
+                        </span>
+
                     </div>
+
 
 
                     <div class="leader-row">
-                        <strong>#01</strong>
-                        <span>ShadowKing</span>
-                        <span>24</span>
-                        <b>1,280</b>
-                    </div>
 
+                        <strong>
+                            #01
+                        </strong>
 
-                    <div class="leader-row">
-                        <strong>#02</strong>
-                        <span>NightWolf</span>
-                        <span>21</span>
-                        <b>1,140</b>
-                    </div>
+                        <span class="leader-player">
 
+                            <i>
+                                SK
+                            </i>
 
-                    <div class="leader-row">
-                        <strong>#03</strong>
-                        <span>DragonX</span>
-                        <span>19</span>
-                        <b>980</b>
-                    </div>
+                            ShadowKing
 
-                </div>
+                        </span>
 
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer class="footer">
-
-        <div class="container footer-content">
-
-            <div>
-
-                <a href="index.html" class="logo">
-                    <span class="logo-mark">G</span>
-                    <span>GAME<span>ARENA</span></span>
-                </a>
-
-                <p>
-                    Premium gaming tournament platform.
-                </p>
-
-            </div>
-
-
-            <div class="footer-links">
-
-                <a href="#">About</a>
-                <a href="#">Rules</a>
-                <a href="#">Support</a>
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-
-            </div>
-
-        </div>
-
-
-        <div class="copyright">
-
-            © 2026 GameArena. All rights reserved.
-
-        </div>
-
-    </footer>
-
-
-    <script src="js/app.js"></script>
-
-</body>
-</html>
+                        <span>
+           
