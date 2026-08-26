@@ -124,7 +124,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }, 2200);
 
-    }
+    }    
+const loginForm =
+        document.getElementById("loginForm");
+
+    const registerForm =
+        document.getElementById("registerForm");
     /* =========================
        GAME CARDS
     ========================= */
@@ -233,40 +238,41 @@ document.addEventListener("DOMContentLoaded", () => {
                 new Date().getFullYear();
 
         });
-    /* =========================
+        /* =========================
        LOGIN
     ========================= */
 
-    const loginForm =
-        document.getElementById("loginForm");
-
     if (loginForm) {
 
-        loginForm.addEventListener(
-            "submit",
-            event => {
+        loginForm.addEventListener("submit", async event => {
 
-                event.preventDefault();
+            event.preventDefault();
 
-                const username =
-                    document
-                        .getElementById("loginEmail")
-                        .value
-                        .trim();
+            const email =
+                document.getElementById("loginEmail").value.trim();
 
-                if (!username) {
-                    showToast(
-                        "Enter your username"
-                    );
-                    return;
-                }
+            const password =
+                document.getElementById("loginPassword").value;
 
-                showToast(
-                    "Login request received"
-                );
-
+            if (!email || !password) {
+                showToast("Enter email and password");
+                return;
             }
-        );
+
+            const { error } =
+                await supabaseClient.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
+
+            if (error) {
+                showToast(error.message);
+                return;
+            }
+
+            showToast("Login successful");
+
+        });
 
     }
 
@@ -275,44 +281,65 @@ document.addEventListener("DOMContentLoaded", () => {
        REGISTER
     ========================= */
 
-    const registerForm =
-        document.getElementById("registerForm");
-
     if (registerForm) {
 
-        registerForm.addEventListener(
-            "submit",
-            event => {
+        registerForm.addEventListener("submit", async event => {
 
-                event.preventDefault();
+            event.preventDefault();
 
-                const username =
-                    document
-                        .getElementById("registerUsername")
-                        .value
-                        .trim();
+            const username =
+                document
+                    .getElementById("registerUsername")
+                    .value
+                    .trim();
 
-                const email =
-                    document
-                        .getElementById("registerEmail")
-                        .value
-                        .trim();
+            const email =
+                document
+                    .getElementById("registerEmail")
+                    .value
+                    .trim();
 
-                if (!username || !email) {
+            const password =
+                document
+                    .getElementById("registerPassword")
+                    .value;
 
-                    showToast(
-                        "Complete all fields"
-                    );
+            if (!username || !email || !password) {
+                showToast("Complete all fields");
+                return;
+            }
 
+            const { data, error } =
+                await supabaseClient.auth.signUp({
+                    email: email,
+                    password: password
+                });
+
+            if (error) {
+                showToast(error.message);
+                return;
+            }
+
+            if (data.user) {
+
+                const { error: profileError } =
+                    await supabaseClient
+                        .from("players")
+                        .insert({
+                            id: data.user.id,
+                            username: username
+                        });
+
+                if (profileError) {
+                    showToast(profileError.message);
                     return;
                 }
 
-                showToast(
-                    "Account request received"
-                );
-
             }
-        );
+
+            showToast("Account created successfully");
+
+        });
 
     }
 
@@ -326,3 +353,4 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
+    
